@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    List<SelectListItem> items = ViewBag.List;
+}
+
+<h2>Добавление</h2>
+<div class="col-md-5">
+    @using (Html.BeginForm("AddFilm", "Add", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <input type="text" name="name" class="form-control" style="max-width:400px;" required placeholder="Имя фильма" /><br>
+        <input type="number" name="year" class="form-control" style="max-width:400px;" required placeholder="Год фильма" /><br>
+        @Html.DropDownList("genre", items, new { @class = "form-control", required = "required" })<br>
+        <textarea type="text" name="desc" class="form-control" style="height:250px; max-width:400px;" required></textarea><br>
+        <input type="file" name="poster" class="form-control" style="max-width:400px;" required /><br>
+        <input type="file" name="video" class="form-control" style="max-width:400px;" required  /><br>
+        <button type="submit" class="btn btn-success">Заполнить базу</button>
+    }
+</div>
+
